@@ -7,6 +7,8 @@ router.get('/', toDoController.getAll);
 
 router.get('/:id', toDoController.getSingle);
 
+router.post('/:id', toDoController.updateList);
+
 // router.post('/', toDoController.createContact);
 
 // router.put('/:id', toDoController.updateContact);

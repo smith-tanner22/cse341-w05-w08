@@ -18,6 +18,51 @@ const getSingle = async (req, res) => {
   });
 };
 
+const updateList = async (req, res) => {
+  const toDoId = new ObjectId(req.params.id);
+  const toDo = {
+    title: req.body.title,
+    date: req.body.date,
+    time: req.body.time,
+    place: req.body.place,
+    description: req.body.description,
+    completed: req.body.completed
+  };
+  const response = await mongodb
+    .getDb()
+    .db()
+    .collection('toDoList')
+    .replaceOne({ _id: toDoId }, toDo);
+  console.log(response);
+  if (response.modififedCount > 0) {
+    res.status(204).json(response);
+  } else {
+    req.status(500).json(response.error || 'Some error occuring while updating the to do list.');
+  }
+};
+
+// const updateContact = async (req, res) => {
+//   const userId = new ObjectId(req.params.id);
+//   const contact = {
+//     firstName: req.body.firstName,
+//     lastName: req.body.lastName,
+//     email: req.body.email,
+//     favoriteColor: req.body.favoriteColor,
+//     birthday: req.body.birthday
+//   };
+//   const response = await mongodb
+//     .getDb()
+//     .db()
+//     .collection('contacts')
+//     .replaceOne({ _id: userId }, contact);
+//   console.log(response);
+//   if (response.modifiedCount > 0) {
+//     res.status(204).json(response);
+//   } else {
+//     req.status(500).json(response.error || 'Some error occured while updating the contact');
+//   }
+// };
+
 // const createContact = async (req, res) => {
 //   const contact = {
 //     firstName: req.body.firstName,
@@ -76,4 +121,4 @@ const getSingle = async (req, res) => {
 
 // module.exports = { getAll, getSingle, createContact, updateContact, deleteContact };
 
-module.exports = { getAll, getSingle };
+module.exports = { getAll, getSingle, updateList };
