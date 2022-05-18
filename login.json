@@ -1,0 +1,14 @@
+{
+  "user": {
+    "email": "tanner22@email.com",
+    "password": "c0olGuy23"
+  },
+  "user2": {
+    "email": "tonystark@email.com",
+    "password": "ir0nman67"
+  },
+  "user3": {
+    "email": "peterp@email.com",
+    "password": "spiderm@n"
+  }
+}

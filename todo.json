@@ -1,0 +1,26 @@
+{
+  "listItem": {
+    "title": "Scripture Study",
+    "date": "05/30/2022",
+    "time": "7:00AM",
+    "place": "Apartment",
+    "description": "Complete Book of Mormon scripture study.",
+    "completed": false
+  },
+  "listItem2": {
+    "title": "Change my Contacts",
+    "date": "05/01/2022",
+    "time": "10:00AM",
+    "place": "Apartment",
+    "description": "Change out of monthly contact lenses.",
+    "completed": true
+  },
+  "listItem3": {
+    "title": "Phone Bill",
+    "date": "07/18/2022",
+    "time": "5:00PM",
+    "place": "Home",
+    "description": "Send Venmo amount to Dad for phone bill",
+    "completed": false
+  }
+}

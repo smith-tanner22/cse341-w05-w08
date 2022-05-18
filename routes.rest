@@ -1,0 +1,103 @@
+// LOCALHOST
+
+// Grab everything
+GET http://localhost:8080/toDO
+###
+
+// grab scripture study
+GET http://localhost:8080/toDO/628503d55174de64e4e9b7a1
+###
+
+// grab change my contacts
+GET http://localhost:8080/toDO/628503d55174de64e4e9b7a2
+
+###
+
+// grab phone bill
+GET http://localhost:8080/toDO/628503d55174de64e4e9b7a3
+
+
+// PRODUCTION Deploy
+GET https://cse341-node-w02personal.herokuapp.com/contacts
+
+###
+
+
+
+
+
+
+// Adding, Updating, and Deleting contacts
+
+// Adding
+POST http://localhost:8080/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Bruce",
+    "lastName": "Banner",
+    "email": "smashingstuff22@email.com",
+    "favoriteColor": "green",
+    "birthday": "12/19/1969"
+}
+
+###
+
+// Updating
+PUT http://localhost:8080/contacts/626c561d9ac0754e737cd68d HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "email": "ironman22@email.com",
+    "favoriteColor": "red",
+    "birthday": "05/29/70"
+}
+
+###
+
+// Deleting
+DELETE http://localhost:8080/contacts/626c561d9ac0754e737cd68c HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Bruce"
+}
+
+###
+
+// PRODUCTION Deploy
+
+POST https://cse341-node-w02personal.herokuapp.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Bruce",
+    "lastName": "Banner",
+    "email": "smashingstuff22@email.com",
+    "favoriteColor": "green",
+    "birthday": "12/19/1969"
+}
+
+###
+
+PUT https://cse341-node-w02personal.herokuapp.com/contacts/626c561d9ac0754e737cd68d HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "email": "ironman22@email.com",
+    "favoriteColor": "red",
+    "birthday": "05/29/70"
+}
+
+###
+
+DELETE https://cse341-node-w02personal.herokuapp.com/contacts/626c561d9ac0754e737cd68c HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Bruce"
+}
