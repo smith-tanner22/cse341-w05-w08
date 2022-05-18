@@ -1,103 +1,91 @@
 // LOCALHOST
 
+// swagger ui
+GET http://localhost:8080/api-docs
+
 // Grab everything
 GET http://localhost:8080/toDO
 ###
 
-// grab scripture study
+// grab "scripture study" to do item
 GET http://localhost:8080/toDO/628503d55174de64e4e9b7a1
 ###
 
-// grab change my contacts
+// grab "change my contacts" to do item
 GET http://localhost:8080/toDO/628503d55174de64e4e9b7a2
 
 ###
 
-// grab phone bill
+// grab "phone bill" to do item
 GET http://localhost:8080/toDO/628503d55174de64e4e9b7a3
 
-
-// PRODUCTION Deploy
-GET https://cse341-node-w02personal.herokuapp.com/contacts
-
 ###
 
-
-
-
-
-
-// Adding, Updating, and Deleting contacts
-
-// Adding
-POST http://localhost:8080/contacts HTTP/1.1
+// add a new item
+POST http://localhost:8080/toDO HTTP/1.1
 content-type: application/json
-
 {
-    "firstName": "Bruce",
-    "lastName": "Banner",
-    "email": "smashingstuff22@email.com",
-    "favoriteColor": "green",
-    "birthday": "12/19/1969"
+    "title": "Turn in homework",
+    "date": "05/21/2022",
+    "time": "11:59PM",
+    "place": "School",
+    "description": "turn in homework for CSE341.",
+    "completed": false
 }
 
 ###
-
-// Updating
-PUT http://localhost:8080/contacts/626c561d9ac0754e737cd68d HTTP/1.1
+// update an item in "scripture study"
+PUT http://localhost:8080/toDO/628503d55174de64e4e9b7a1 HTTP/1.1
 content-type: application/json
-
 {
-    "firstName": "Tony",
-    "lastName": "Stark",
-    "email": "ironman22@email.com",
-    "favoriteColor": "red",
-    "birthday": "05/29/70"
+    "title": "Scripture Study",
+    "date": "05/30/2022",
+    "time": "10:00AM",
+    "place": "School",
+    "description": "Complete Book of Mormon scripture study.",
+    "completed": false
 }
 
 ###
-
-// Deleting
-DELETE http://localhost:8080/contacts/626c561d9ac0754e737cd68c HTTP/1.1
-content-type: application/json
-
-{
-    "firstName": "Bruce"
-}
-
-###
-
 // PRODUCTION Deploy
 
-POST https://cse341-node-w02personal.herokuapp.com/contacts HTTP/1.1
-content-type: application/json
+// swagger ui
+GET https://cse341-w05-w08.herokuapp.com/api-docs
 
+###
+
+// Grab everything
+GET https://cse341-w05-w08.herokuapp.com/toDo
+
+###
+
+// Grab an indiviual item
+GET https://cse341-w05-w08.herokuapp.com/toDo/628503d55174de64e4e9b7a2
+
+###
+
+// add a new item
+POST https://cse341-w05-w08.herokuapp.com/toDo HTTP/1.1
+content-type: application/json
 {
-    "firstName": "Bruce",
-    "lastName": "Banner",
-    "email": "smashingstuff22@email.com",
-    "favoriteColor": "green",
-    "birthday": "12/19/1969"
+    "title": "Do Laundry",
+    "date": "05/25/2022",
+    "time": "10:59AM",
+    "place": "Home",
+    "description": "Do laundry at some point today.",
+    "completed": true
 }
 
 ###
 
-PUT https://cse341-node-w02personal.herokuapp.com/contacts/626c561d9ac0754e737cd68d HTTP/1.1
+// update an item in "phone bill"
+PUT https://cse341-w05-w08.herokuapp.com/toDo/628503d55174de64e4e9b7a3 HTTP/1.1
 content-type: application/json
-
 {
-    "firstName": "Tony",
-    "lastName": "Stark",
-    "email": "ironman22@email.com",
-    "favoriteColor": "red",
-    "birthday": "05/29/70"
-}
-
-###
-
-DELETE https://cse341-node-w02personal.herokuapp.com/contacts/626c561d9ac0754e737cd68c HTTP/1.1
-content-type: application/json
-
-{
-    "firstName": "Bruce"
+    "title": "Phone Bill",
+    "date": "07/18/2022",
+    "time": "8:00PM",
+    "place": "Apartment",
+    "description": "Send Venmo amount to Dad for phone bill",
+    "completed": false
 }
