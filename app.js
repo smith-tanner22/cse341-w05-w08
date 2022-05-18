@@ -8,7 +8,6 @@ const swaggerDocument = require('./swagger-output.json');
 const port = process.env.PORT || 8080;
 const app = express();
 
-// need this for some reason
 var options = {
   explorer: true
 };
