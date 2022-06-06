@@ -7,6 +7,8 @@ const swaggerDocument = require('./swagger-output.json');
 const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
 
+const toDoController = require('./controllers/toDo');
+
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -30,6 +32,8 @@ app.get('/', (req, res) => {
 app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
+
+app.get('/todo', requiresAuth(), toDoController.getAll);
 
 var options = {
   explorer: true
