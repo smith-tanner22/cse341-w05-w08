@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger-output.json');
-const { auth, requiresAuth } = require('express-openid-connect');
+const { auth } = require('express-openid-connect');
 require('dotenv').config();
 
 const toDoController = require('./controllers/toDo');
@@ -28,12 +28,6 @@ app.use(auth(config));
 app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
-
-app.get('/profile', requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.oidc.user));
-});
-
-app.get('/todo', requiresAuth(), toDoController.getAll);
 
 var options = {
   explorer: true
