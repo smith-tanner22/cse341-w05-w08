@@ -1,0 +1,19 @@
+const express = require('express');
+const router = express.Router();
+
+const userController = require('../controllers/user');
+
+const validation = require('../middleware/validate');
+const { route } = require('./toDo');
+
+router.get('/', userController.getAll);
+
+router.get('/:id', userController.getSingle);
+
+router.post('/:id', validation.saveUser, userController.createUser);
+
+route.put('/:id', validation.saveUser, userController.updateUser);
+
+router.delete('/:id', userController.deleteUser);
+
+module.exports = router;
