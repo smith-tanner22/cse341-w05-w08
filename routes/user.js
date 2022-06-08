@@ -12,7 +12,7 @@ router.get('/:id', userController.getSingle);
 
 router.post('/:id', validation.saveUser, userController.createUser);
 
-route.put('/:id', validation.saveUser, userController.updateUser);
+router.put('/:id', validation.saveUser, userController.updateUser);
 
 router.delete('/:id', userController.deleteUser);
 
