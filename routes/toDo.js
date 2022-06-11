@@ -8,7 +8,7 @@ router.get('/', toDoController.getAll);
 
 router.get('/:id', toDoController.getSingle);
 
-router.post('/:id', validation.saveList, toDoController.createList);
+router.post('/', validation.saveList, toDoController.createList);
 
 router.put('/:id', validation.saveList, toDoController.updateList);
 

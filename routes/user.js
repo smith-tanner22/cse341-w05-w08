@@ -10,7 +10,7 @@ router.get('/', userController.getAll);
 
 router.get('/:id', userController.getSingle);
 
-router.post('/:id', validation.saveUser, userController.createUser);
+router.post('/', validation.saveUser, userController.createUser);
 
 router.put('/:id', validation.saveUser, userController.updateUser);
 
